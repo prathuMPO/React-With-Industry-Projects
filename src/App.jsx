@@ -1,11 +1,24 @@
-const a = "20gvyv"
-
+import Header from "./components/Header"
+import "./styles/App.css"
+import "./styles/Header.css"
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import Home from "./components/Home"
+import About from "./components/About"
+import Contact from "./components/Contact"
+import Product from "./components/Product"
 function App(){
     return (
-    <div>
-        <h1>Welcome page 1 {a}</h1>
-        <p></p>
-    </div>
+        <Router>
+            <Header />
+        <Routes>
+            <Route path="/" element={<Home /> } />
+            <Route path="/about" element={<About /> } />
+            <Route path="/contact" element={<Contact /> } />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="*" element={<div>Page not gound 404</div>} />
+        </Routes>
+
+    </Router>
     );
 }
 export default App;
